@@ -211,7 +211,6 @@ GameObject:
   - component: {fileID: 225009448}
   - component: {fileID: 225009449}
   - component: {fileID: 225009450}
-  - component: {fileID: 225009451}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -429,6 +428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
   moveSpeed: 5
   weapon: {fileID: 638679866}
+  menu: {fileID: 162358833}
 --- !u!95 &225009449
 Animator:
   serializedVersion: 7
@@ -497,18 +497,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.84695584, y: 0.94967365}
   m_EdgeRadius: 0
---- !u!114 &225009451
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 225009443}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d6135616b99571729e25732a381d536, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!1 &472497826
 GameObject:
   m_ObjectHideFlags: 0
