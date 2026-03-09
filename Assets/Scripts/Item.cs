@@ -5,6 +5,10 @@ public class Item : MonoBehaviour {
 	public int ID;
     public string Name;
 
+    public virtual void UseItem() {
+        Debug.Log("Using item " + Name);
+    }
+
     public virtual void Pickup() {
         Sprite itemIcon = GetComponent<Image>().sprite;
         if (ItemPickupUIController.Instance != null) {
