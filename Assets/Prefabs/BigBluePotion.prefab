@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -3330400591242279866}
   - component: {fileID: 2471483120945856331}
   - component: {fileID: 4609843996411547316}
+  - component: {fileID: -6414518899858080901}
   m_Layer: 5
   m_Name: BigBluePotion
   m_TagString: Item
@@ -213,3 +214,18 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.234375
+--- !u!114 &-6414518899858080901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331746237368880710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c643db607e6abdee9a41df99fa505ecb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BounceEffect
+  bounceHeight: 0.3
+  bounceCount: 3
+  bounceDuration: 0.4
