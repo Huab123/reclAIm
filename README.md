@@ -18,7 +18,8 @@ If you want to successfully run the project in Unity do the following:
 - `cd {folder_name}`
 - `git init`
 - `git remote add origin {project ssh link}`
-  - Don't forget to setup ssh key 
+  - Don't forget to setup ssh key
+  - First time use `git clone {ssh_link}` is also okay
 - `git pull origin main`
 - `git push origin master`
 - In github double check then pull request from master to main
