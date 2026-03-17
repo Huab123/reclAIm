@@ -762,8 +762,8 @@ RectTransform:
   m_Children:
   - {fileID: 1276118506}
   - {fileID: 789619276}
-  - {fileID: 1963614646}
   - {fileID: 1880991336}
+  - {fileID: 1963614646}
   m_Father: {fileID: 1568299798}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -941,7 +941,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0732574, y: -8.89726, z: -10}
+  m_LocalPosition: {x: -6.0705705, y: -8.89726, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19759,10 +19759,10 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 12.179309, y: 7.694152}
-      - {x: -12.855067, y: 7.743888}
-      - {x: -12.857215, y: -14.290956}
-      - {x: 12.160842, y: -14.290958}
+    - - {x: 13.127212, y: 8.723314}
+      - {x: -13.749991, y: 8.728304}
+      - {x: -13.78563, y: -15.1705065}
+      - {x: 13.138122, y: -15.170509}
   m_UseDelaunayMesh: 1
 --- !u!1 &1488789397
 GameObject:
@@ -21218,6 +21218,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d64ba7a56ba69f48b5ae85b9586525, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+  mapParent: {fileID: 1880991336}
+  areaPrefab: {fileID: 3159586240302437721, guid: a31902b073ea1e1f9bdc4178ae54d6e2, type: 3}
+  playerIcon: {fileID: 1963614646}
+  defaultColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  currentAreaColor: {r: 0, g: 1, b: 0.083200455, a: 1}
+  mapBounds: {fileID: 1874060132}
+  initialArea: {fileID: 1267261847}
+  mapScale: 10
 --- !u!1 &1874060132
 GameObject:
   m_ObjectHideFlags: 0

@@ -34,9 +34,11 @@ public class SaveController : MonoBehaviour {
 		
 			GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
 
-			FindFirstObjectByType<CinemachineConfiner2D>().BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
+			PolygonCollider2D savedMapBoundary = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>(); 
+			FindFirstObjectByType<CinemachineConfiner2D>().BoundingShape2D = savedMapBoundary;
 
 			MapController_Manual.Instance?.HighlightArea(saveData.mapBoundary); 
+			MapController_Dynamic.Instance?.GenerateMap(savedMapBoundary);
 
 			inventoryController.SetInventoryItems(saveData.inventorySaveData);
 			hotbarController.SetHotbarItems(saveData.hotbarSaveData);
@@ -44,6 +46,7 @@ public class SaveController : MonoBehaviour {
 		else {
 			SaveGame();
             
+			MapController_Dynamic.Instance?.GenerateMap();
             inventoryController.SetInventoryItems(new List<InventorySaveData>());
             hotbarController.SetHotbarItems(new List<InventorySaveData>());
 
