@@ -4,15 +4,17 @@ using UnityEngine.UI;
 public class Item : MonoBehaviour {
 	public int ID;
     public string Name;
+    private bool pickedUp = false;
 
     public virtual void UseItem() {
         Debug.Log("Using item " + Name);
     }
 
     public virtual void Pickup() {
+        if (pickedUp) return;
+        pickedUp = true;
+        
         Sprite itemIcon = GetComponent<Image>().sprite;
-        if (ItemPickupUIController.Instance != null) {
-            ItemPickupUIController.Instance.ShowItemPickup(Name, itemIcon);
-        }
+        ItemPickupUIController.Instance?.ShowItemPickup(Name, itemIcon);
     }
 }
