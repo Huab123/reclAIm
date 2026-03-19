@@ -12,11 +12,15 @@ public class PlayerMovement : MonoBehaviour
 
 	Vector2 moveDirection;
 	Vector2 mousePosition;
+	
+	public float health;
+	public float maxHealth = 100f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
     	rb = GetComponent<Rigidbody2D>();    
 		animator = GetComponent<Animator>();
+		health = maxHealth;
     }
 
     // Update is called once per frame
@@ -57,5 +61,25 @@ public class PlayerMovement : MonoBehaviour
 		moveInput = context.ReadValue<Vector2>();
 		animator.SetFloat("InputX", moveInput.x);
 		animator.SetFloat("InputY", moveInput.y);
+	}
+	
+	private void Heal(float amount)
+	{
+		Debug.Log("player healed: " + amount);
+		if (health>=maxHealth)
+		{
+			health = maxHealth; //we want overheal later we can do that
+		}
+		
+	}
+
+	private void TakeDamage(float amount)
+	{
+		Debug.Log("player damaged: " + amount);
+		if (health<=0)
+		{
+			Debug.Log("player is dead"); 	//TODO: add death state
+		}
+
 	}
 }
