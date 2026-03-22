@@ -4,20 +4,26 @@ using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
-	[SerializeField] private float moveSpeed = 5f;
+
 	private Rigidbody2D rb;
 	private Vector2 moveInput;
 	private Animator animator;
 	[SerializeField] private Weapon weapon;
 	[SerializeField] private GameObject menu;
+	public TextMeshProUGUI healthText;
+
 
 	Vector2 moveDirection;
 	Vector2 mousePosition;
 	
 	public float health;
 	public float maxHealth = 100f;
-	
-	public TextMeshProUGUI healthText;
+	public float damageMult = 1f;
+	public float attackSpeedMult = 1f; //this is percentile
+	public float critChance = 0f; // this is the percent (100 is 100%)
+	public float critDamageMult = 2f; //this is what the damage is multiplied by
+	public float reloadSpeed = 1f;
+	[SerializeField] private float moveSpeed = 5f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
@@ -53,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 		mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 		
 		//update the player health display
-		UpdateHealthDisplay(); // this isn't the best solution (as its enefficent) but it will abosulutely make sure the health is correct
+		UpdateHealthDisplay(); // this isn't the best solution (as its inefficent) but it will abosulutely make sure the health is correct
     }
 
 	private void FixedUpdate() {
