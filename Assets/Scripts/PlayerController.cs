@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,12 +16,16 @@ public class PlayerMovement : MonoBehaviour
 	
 	public float health;
 	public float maxHealth = 100f;
+	
+	public TextMeshProUGUI healthText;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
+		
     	rb = GetComponent<Rigidbody2D>();    
 		animator = GetComponent<Animator>();
 		health = maxHealth;
+		UpdateHealthDisplay();
     }
 
     // Update is called once per frame
@@ -46,6 +51,9 @@ public class PlayerMovement : MonoBehaviour
 		
 		// Set up gun rotation based on mouse position
 		mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+		
+		//update the player health display
+		UpdateHealthDisplay(); // this isn't the best solution (as its enefficent) but it will abosulutely make sure the health is correct
     }
 
 	private void FixedUpdate() {
@@ -72,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
 		Debug.Log("player healed: " + amount);
 		if (health>=maxHealth)
 		{
-			health = maxHealth; //we want overheal later we can do that
+			health = maxHealth; //we if want overheal later we can do that
 		}
 		
 	}
@@ -85,5 +93,9 @@ public class PlayerMovement : MonoBehaviour
 			Debug.Log("player is dead"); 	//TODO: add death state
 		}
 
+	}
+	void UpdateHealthDisplay()
+	{
+		healthText.text = "health: " + health + "/" + maxHealth ;
 	}
 }
