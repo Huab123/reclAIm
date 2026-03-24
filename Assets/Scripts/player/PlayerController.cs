@@ -16,21 +16,14 @@ public class PlayerMovement : MonoBehaviour
 	Vector2 moveDirection;
 	Vector2 mousePosition;
 	
-	public float health;
-	public float maxHealth = 100f;
-	public float damageMult = 1f;
-	public float attackSpeedMult = 1f; //this is percentile
-	public float critChance = 0f; // this is the percent (100 is 100%)
-	public float critDamageMult = 2f; //this is what the damage is multiplied by
-	public float reloadSpeed = 1f;
-	[SerializeField] private float moveSpeed = 5f;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start() {
 		
     	rb = GetComponent<Rigidbody2D>();    
 		animator = GetComponent<Animator>();
-		health = maxHealth;
+		PlayerStats.Instance.health = PlayerStats.Instance.maxHealth;
 		UpdateHealthDisplay();
     }
 
@@ -48,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
 		else if (menu.activeSelf == true) return;
 
 		// Set player speed
-       	rb.linearVelocity = moveInput * moveSpeed;
+       	rb.linearVelocity = moveInput * PlayerStats.Instance.moveSpeed;
 
 		// Shoot bullet if leftMouse pressed
 		if(Mouse.current.leftButton.wasPressedThisFrame) {
@@ -84,9 +77,9 @@ public class PlayerMovement : MonoBehaviour
 	private void Heal(float amount)
 	{
 		Debug.Log("player healed: " + amount);
-		if (health>=maxHealth)
+		if (PlayerStats.Instance.health>= PlayerStats.Instance.maxHealth)
 		{
-			health = maxHealth; //we if want overheal later we can do that
+			PlayerStats.Instance.health = PlayerStats.Instance.maxHealth; //we if want overheal later we can do that
 		}
 		
 	}
@@ -94,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
 	private void TakeDamage(float amount)
 	{
 		Debug.Log("player damaged: " + amount);
-		if (health<=0)
+		if (PlayerStats.Instance.health<=0)
 		{
 			Debug.Log("player is dead"); 	//TODO: add death state
 		}
@@ -102,6 +95,6 @@ public class PlayerMovement : MonoBehaviour
 	}
 	void UpdateHealthDisplay()
 	{
-		healthText.text = "health: " + health + "/" + maxHealth ;
+		healthText.text = "health: " + PlayerStats.Instance.health + "/" + PlayerStats.Instance.maxHealth ;
 	}
 }

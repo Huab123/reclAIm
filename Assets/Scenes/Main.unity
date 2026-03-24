@@ -432,6 +432,7 @@ GameObject:
   - component: {fileID: 225009449}
   - component: {fileID: 225009450}
   - component: {fileID: 225009451}
+  - component: {fileID: 225009452}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -664,11 +665,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 801b0e972fd1f00439d38f0d9950a0be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerMovement
-  moveSpeed: 5
   weapon: {fileID: 638679866}
   menu: {fileID: 162358833}
-  health: 0
-  maxHealth: 100
   healthText: {fileID: 362866224}
 --- !u!95 &225009449
 Animator:
@@ -750,6 +748,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c709a718a8104d09886746d3b08e4db0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
+--- !u!114 &225009452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 225009443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0effe8ef95cc9f00ab169a344e169b24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerStats
+  maxHealth: 100
+  health: 100
+  damageMult: 1
+  attackSpeedMult: 1
+  critChance: 0
+  critDamageMult: 2
+  reloadSpeed: 1
+  moveSpeed: 5
 --- !u!1 &362866222
 GameObject:
   m_ObjectHideFlags: 0
@@ -1629,6 +1647,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   orbitRadius: 0.6
   bulletPrefab: {fileID: 5888267235530974277, guid: 1808c06b29012a8cb9fb2c5f010a062c, type: 3}
+  player: {fileID: 0}
   firePoint: {fileID: 704360511}
   fireRate: 0.2
 --- !u!212 &638679867
