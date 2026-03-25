@@ -25,6 +25,10 @@ public class PlayerMovement : MonoBehaviour
 		if (Keyboard.current.escapeKey.wasPressedThisFrame) {
         	bool opening = !menu.activeSelf;
         	Time.timeScale = opening ? 0f : 1f;
+        	if (opening) {
+        		moveInput = Vector2.zero;
+        		rb.linearVelocity = Vector2.zero;
+        	}
     	}
 		else if (menu.activeSelf == true) return;
 
