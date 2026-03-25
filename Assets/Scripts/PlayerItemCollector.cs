@@ -12,12 +12,17 @@ public class PlayerItemCollector : MonoBehaviour
 	private void OnTriggerEnter2D(Collider2D collision) {
 		if (collision.CompareTag("Item")) {
 			Item item = collision.GetComponent<Item>();
-			if (item != null) {
-				// Add item to inventory
-				bool itemAdded = inventoryController.AddItem(collision.gameObject);
+			if (item != null && !item.IsPickedUp) {
+				// Avoid double-collect on multi-collider/player-overlap
+				Collider2D col = collision.GetComponent<Collider2D>();
+				if (col != null) col.enabled = false;
+
+				bool itemAdded = inventoryController.AddItem(item.ID);
 				if (itemAdded) {
-                    item.Pickup();
+					item.Pickup();
 					Destroy(collision.gameObject);
+				} else {
+					if (col != null) col.enabled = true;
 				}
 			}
 		}
