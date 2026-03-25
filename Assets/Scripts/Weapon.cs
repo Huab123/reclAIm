@@ -4,16 +4,19 @@ using UnityEngine.InputSystem;
 public class Weapon : MonoBehaviour
 {
 	[SerializeField] private float orbitRadius = 1f;
-	private Transform player;
+	private Transform playerPos;
 	[SerializeField] private GameObject bulletPrefab;
+	[SerializeField] private GameObject player;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate = 0.2f;
 
     private float nextFireTime = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start() {
-       	player = GameObject.FindGameObjectWithTag("Player").transform; 
+    void Start()
+    {
+	    player = GameObject.FindGameObjectWithTag("Player");
+       	playerPos = GameObject.FindGameObjectWithTag("Player").transform; 
     }
 
     // Update is called once per frame
@@ -23,8 +26,8 @@ public class Weapon : MonoBehaviour
                     Mouse.current.position.ReadValue().y, 0f));
     	mouseWorld.z = 0f;
 
-    	Vector2 direction = (mouseWorld - player.position).normalized;
-    	transform.position = player.position + (Vector3)(direction * orbitRadius);
+    	Vector2 direction = (mouseWorld - playerPos.position).normalized;
+    	transform.position = playerPos.position + (Vector3)(direction * orbitRadius);
 
     	float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
     	transform.rotation = Quaternion.Euler(0f, 0f, angle);
@@ -32,7 +35,7 @@ public class Weapon : MonoBehaviour
 
 	public void Fire() {
 		if (Time.time < nextFireTime) return;
-        nextFireTime = Time.time + fireRate;
+        nextFireTime = Time.time + (fireRate / PlayerStats.Instance.attackSpeedMult); //this is where modding attack speed needs to go
 
         // Spawn bullet at firepoint
         GameObject bulletObj = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
