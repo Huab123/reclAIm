@@ -19,6 +19,10 @@ public class PlayerItemCollector : MonoBehaviour
 
 				bool itemAdded = inventoryController.AddItem(item.ID);
 				if (itemAdded) {
+					if (SoundEffectManager.Instance != null)
+                    {
+                        SoundEffectManager.Instance.PlayPotionPickup();
+                    }	
 					item.Pickup();
 					Destroy(collision.gameObject);
 				} else {

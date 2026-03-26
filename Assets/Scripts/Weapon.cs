@@ -42,5 +42,9 @@ public class Weapon : MonoBehaviour
 
         // Pass direction to bullet (gun's right = forward since sprite points right)
         bulletObj.GetComponent<Bullet>().Init(firePoint.right);
-	}
+        if (SoundEffectManager.Instance != null)
+        {
+            SoundEffectManager.Instance.PlayGunShot();
+        }
+    }
 }
