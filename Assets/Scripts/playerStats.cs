@@ -13,9 +13,11 @@ public class PlayerStats : MonoBehaviour
     public float critDamageMult = 2f; //this is what the damage is multiplied by
     public float reloadSpeed = 1f;
     public float moveSpeed = 5f;
+    // if you are to add more stats, MAKE SURE IT IS public, else nothing will be able to use the stat
     void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
 }
+// to refrence the values, use PlayerStats.Instance.var with var being the name of the variable
