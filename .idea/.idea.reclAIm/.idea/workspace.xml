@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6633fbca-e227-47b6-b2df-0ea8bc63602e" name="Changes" comment="" />
+    <list default="true" id="6633fbca-e227-47b6-b2df-0ea8bc63602e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.reclAIm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.reclAIm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PlayerItemCollector.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PlayerItemCollector.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +43,7 @@
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "Unity Attach To.Attach to.executor": "Debug",
-    "git-widget-placeholder": "stats-framework",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -68,6 +71,7 @@
       <workItem from="1774199254022" duration="385000" />
       <workItem from="1774199845287" duration="2368000" />
       <workItem from="1774383998755" duration="1338000" />
+      <workItem from="1774553387879" duration="560000" />
     </task>
     <servers />
   </component>
