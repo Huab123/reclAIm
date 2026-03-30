@@ -19,5 +19,17 @@ public class PlayerStats : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
     }
+
+    public float CritCheck()
+    {
+        float critRoll = Random.Range(0f, 100f);
+        if (critRoll <= critChance)
+        {
+            //crit succeded
+            return critDamageMult;
+        }
+
+        return 1f;
+    }
 }
 // to refrence the values, use PlayerStats.Instance.var with var being the name of the variable

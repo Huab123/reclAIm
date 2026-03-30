@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class enemyController : MonoBehaviour
 {
-    private float health = 10;
+    public float health = 10;
     public float moveSpeed = 3f;
 
     private Rigidbody2D rb;
@@ -49,7 +49,7 @@ public class enemyController : MonoBehaviour
 
         if (other.tag == "bullet")
         {
-            TakeDamage(2);
+            TakeDamage(2*PlayerStats.Instance.CritCheck());
         }
     }
 }
