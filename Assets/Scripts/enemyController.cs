@@ -46,10 +46,9 @@ public class enemyController : MonoBehaviour
         {
             TakeDamage(1);
         }
-
         if (other.tag == "bullet")
         {
-            TakeDamage(2*PlayerStats.Instance.CritCheck());
+            TakeDamage(2*PlayerStats.Instance.damageMult*PlayerStats.Instance.CritCheck());
         }
     }
 }
