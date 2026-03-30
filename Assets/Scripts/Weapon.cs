@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class Weapon : MonoBehaviour
 {
@@ -10,9 +11,7 @@ public class Weapon : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate = 0.2f;
     private int currentAmmo = 7;
-    private float WhenFinshedReloadTime = 0f;
     private bool reloading = false;
-
     private float nextFireTime = 0f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -39,15 +38,24 @@ public class Weapon : MonoBehaviour
 
     public void Reload()
     {
-	    //do nothing if ammo is already at max or if we are already reloading
-	    if (CurrentAmmo >= PlayerStats.Instance.MaxAmmo||reloading) return; 
-		WhenFinshedReloadTime = Time.time + PlayerStats.Instance.reloadTime;
-		relaoding = true;
-	    return;
+	    // do nothing if ammo is already at max or if we are already reloading
+	    if (currentAmmo >= PlayerStats.Instance.MaxAmmo || reloading) return;
+
+	    StartCoroutine(ReloadCoroutine());
+    }
+
+    private IEnumerator ReloadCoroutine()
+    {
+	    reloading = true;
+
+	    yield return new WaitForSeconds(PlayerStats.Instance.reloadTime);
+
+	    currentAmmo = PlayerStats.Instance.MaxAmmo;
+	    reloading = false;
     }
 
 	public void Fire() {
-		if (Time.time < nextFireTime|| Time.time <reloading ) return;
+		if (Time.time < nextFireTime|| reloading ) return;
         nextFireTime = Time.time + (fireRate / PlayerStats.Instance.attackSpeedMult); //this is where modding attack speed needs to go
 
         // Spawn bullet at firepoint
