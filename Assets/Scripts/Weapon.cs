@@ -9,6 +9,9 @@ public class Weapon : MonoBehaviour
 	[SerializeField] private GameObject player;
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate = 0.2f;
+    private int currentAmmo = 7;
+    private float WhenFinshedReloadTime = 0f;
+    private bool reloading = false;
 
     private float nextFireTime = 0f;
 
@@ -16,7 +19,8 @@ public class Weapon : MonoBehaviour
     void Start()
     {
 	    player = GameObject.FindGameObjectWithTag("Player");
-       	playerPos = GameObject.FindGameObjectWithTag("Player").transform; 
+       	playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        currentAmmo = PlayerStats.Instance.MaxAmmo;
     }
 
     // Update is called once per frame
@@ -33,8 +37,17 @@ public class Weapon : MonoBehaviour
     	transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
+    public void Reload()
+    {
+	    //do nothing if ammo is already at max or if we are already reloading
+	    if (CurrentAmmo >= PlayerStats.Instance.MaxAmmo||reloading) return; 
+		WhenFinshedReloadTime = Time.time + PlayerStats.Instance.reloadTime;
+		relaoding = true;
+	    return;
+    }
+
 	public void Fire() {
-		if (Time.time < nextFireTime) return;
+		if (Time.time < nextFireTime|| Time.time <reloading ) return;
         nextFireTime = Time.time + (fireRate / PlayerStats.Instance.attackSpeedMult); //this is where modding attack speed needs to go
 
         // Spawn bullet at firepoint

@@ -44,7 +44,7 @@ public class PlayerMovement : MonoBehaviour
        	rb.linearVelocity = moveInput * PlayerStats.Instance.moveSpeed;
 
 		// Shoot bullet if leftMouse pressed
-		if(Mouse.current.leftButton.wasPressedThisFrame) {
+		if(Mouse.current.Fire1.wasPressedThisFrame) {
 			weapon.Fire();
 		}
 		
