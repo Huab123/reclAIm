@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 	}
 	void UpdateHealthDisplay()
 	{
-		healthText.text = "health: " + PlayerStats.Instance.health + "/" + PlayerStats.Instance.maxHealth ;
+		healthText.text = "health: " + PlayerStats.Instance.health + "/" + PlayerStats.Instance.maxHealth;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
