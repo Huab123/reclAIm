@@ -10,6 +10,7 @@ public class Item : MonoBehaviour {
     public bool IsPickedUp => pickedUp;
     public int quantity = 1;
     private TMP_Text quantityText;
+    public ItemData data;
 
     private void Awake() {
         quantityText = GetComponentInChildren<TMP_Text>();
@@ -48,13 +49,18 @@ public class Item : MonoBehaviour {
         return clone;
     }
 
-    public virtual void UseItem() {
-        if (quantity > 1) {
-            RemoveFromStack(1);
-        } else {
-            Destroy(gameObject);
-        }
+    public void UseItem(GameObject user)
+{
+    if (data != null)
+    {
+        data.Use(user); // now this is the player
     }
+
+    if (quantity > 1)
+        RemoveFromStack(1);
+    else
+        Destroy(gameObject);
+}
 
     public virtual void Pickup() {
         if (pickedUp) return;

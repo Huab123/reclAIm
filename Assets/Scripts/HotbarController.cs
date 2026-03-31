@@ -10,9 +10,11 @@ public class HotbarController : MonoBehaviour {
     private ItemDictionary itemDictionary;
 
     private Key[] hotbarKeys;
+	private GameObject player;
 
     private void Awake() {
         itemDictionary = FindFirstObjectByType<ItemDictionary>();
+		player = PlayerStats.Instance.gameObject;
         
         hotbarKeys = new Key[slotCount];
         for (int i = 0; i < slotCount; i++) {
@@ -32,7 +34,7 @@ public class HotbarController : MonoBehaviour {
         Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
         if (slot.currentItem != null) {
             Item item = slot.currentItem.GetComponent<Item>();
-            item.UseItem();
+            item.UseItem(player);
         }
     }
 

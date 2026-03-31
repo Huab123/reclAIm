@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: Name
       value: Red Potion
       objectReference: {fileID: 0}
+    - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 34b6a19049db9a64d9c6a197d6a7c0eb, type: 2}
     - target: {fileID: 1331746237368880710, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Name
       value: BigRedPotion

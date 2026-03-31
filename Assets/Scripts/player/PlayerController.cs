@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetFloat("InputY", moveInput.y);
 	}
 	
-	private void Heal(float amount)
+	public void Heal(float amount)
 	{
 		Debug.Log("player healed: " + amount);
 		PlayerStats.Instance.health += amount;
