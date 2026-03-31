@@ -18,10 +18,9 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other) {
         if (other.CompareTag("Enemy")) {
-			Debug.Log("Hit");
-			Destroy(gameObject);
-			Destroy(other.gameObject); // Change to damage and not instant destroy
-		}
+			Destroy(gameObject); 
+			// Change to damage and not instant destroy
+        }
 		else if (other.CompareTag("Collision")) {
 			Destroy(gameObject);
 		}

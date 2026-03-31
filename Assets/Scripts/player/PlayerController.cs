@@ -50,9 +50,6 @@ public class PlayerMovement : MonoBehaviour
 		
 		// Set up gun rotation based on mouse position
 		mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-		
-		//update the player health display
-		UpdateHealthDisplay(); // this isn't the best solution (as its inefficent) but it will abosulutely make sure the health is correct
     }
 
 	private void FixedUpdate() {
@@ -77,24 +74,34 @@ public class PlayerMovement : MonoBehaviour
 	private void Heal(float amount)
 	{
 		Debug.Log("player healed: " + amount);
+		PlayerStats.Instance.health += amount;
 		if (PlayerStats.Instance.health>= PlayerStats.Instance.maxHealth)
 		{
 			PlayerStats.Instance.health = PlayerStats.Instance.maxHealth; //we if want overheal later we can do that
 		}
-		
+		UpdateHealthDisplay();
 	}
 
 	private void TakeDamage(float amount)
 	{
 		Debug.Log("player damaged: " + amount);
+		PlayerStats.Instance.health -= amount;
 		if (PlayerStats.Instance.health<=0)
 		{
 			Debug.Log("player is dead"); 	//TODO: add death state
 		}
-
+		UpdateHealthDisplay();
 	}
 	void UpdateHealthDisplay()
 	{
-		healthText.text = "health: " + PlayerStats.Instance.health + "/" + PlayerStats.Instance.maxHealth ;
+		healthText.text = "health: " + PlayerStats.Instance.health + "/" + PlayerStats.Instance.maxHealth;
+	}
+
+	void OnTriggerEnter2D(Collider2D other)
+	{
+		if (other.tag == "Enemy")
+		{
+			TakeDamage(1);
+		}
 	}
 }
