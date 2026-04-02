@@ -10,11 +10,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6633fbca-e227-47b6-b2df-0ea8bc63602e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.reclAIm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.reclAIm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Weapon.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/player/PlayerController.cs" afterDir="false" />
-    </list>
+    <list default="true" id="6633fbca-e227-47b6-b2df-0ea8bc63602e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,7 +26,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Bullet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Weapon.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/enemyController.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/player/PlayerController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/player/PlayerController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/player/playerStats.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
@@ -59,7 +55,7 @@
     "XThreadsFramesViewSplitterKey": "0.35825545",
     "cidr.known.project.marker": "true",
     "codeWithMe.voiceChat.enabledByDefault": "false",
-    "git-widget-placeholder": "ammo/reload",
+    "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -94,6 +90,7 @@
       <workItem from="1774884410760" duration="341000" />
       <workItem from="1774890743349" duration="1944000" />
       <workItem from="1774925687216" duration="1147000" />
+      <workItem from="1775099003040" duration="180000" />
     </task>
     <servers />
   </component>

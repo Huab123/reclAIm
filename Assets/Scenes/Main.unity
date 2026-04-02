@@ -23789,8 +23789,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3203c11e3f5882547857d3e01ad2dc8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SoundEffectManager
-  gunShotSound: {fileID: 0}
-  potionPickupSound: {fileID: 0}
+  gunShotSound: {fileID: 8300000, guid: 0e2db143f1e4e3344a22e589e6d57926, type: 3}
+  potionPickupSound: {fileID: 8300000, guid: eebb04d863cf6694e8a5594713302c2d, type: 3}
   masterSFXVolume: 1
   gunShotVolume: 0.3
   potionPickupVolume: 0.6
