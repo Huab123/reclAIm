@@ -8,6 +8,7 @@ TagManager:
   - Collision
   - Item
   - bullet
+  - MapIgnore
   layers:
   - Default
   - TransparentFX

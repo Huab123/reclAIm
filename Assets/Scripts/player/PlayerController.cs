@@ -70,6 +70,16 @@ public class PlayerMovement : MonoBehaviour
 		animator.SetFloat("InputX", moveInput.x);
 		animator.SetFloat("InputY", moveInput.y);
 	}
+
+	public void StopMovement() {
+		moveInput = Vector2.zero;
+		if (animator != null) {
+			animator.SetBool("isWalking", false);
+		}
+		if (rb != null) {
+			rb.linearVelocity = Vector2.zero;
+		}
+	}
 	
 	private void Heal(float amount)
 	{
