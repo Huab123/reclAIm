@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine.UI;
 
 public class MapController_Dynamic : MonoBehaviour {
@@ -17,6 +18,8 @@ public class MapController_Dynamic : MonoBehaviour {
     public GameObject mapBounds;
     public PolygonCollider2D initialArea;
     public float mapScale = 10f;
+    public string ignoreTag = "MapIgnore";
+    public List<string> excludedAreaNames = new List<string>();
     private PolygonCollider2D[] mapAreas;
     private Dictionary<string, RectTransform> uiAreas = new Dictionary<string, RectTransform>(); // Map each PolygonCollider2D to corresponding RectTransform
 
@@ -30,7 +33,21 @@ public class MapController_Dynamic : MonoBehaviour {
             Destroy(gameObject);
         }
 
-        mapAreas = mapBounds.GetComponentsInChildren<PolygonCollider2D>();
+        mapAreas = mapBounds.GetComponentsInChildren<PolygonCollider2D>()
+            .Where(area => !IsIgnoredArea(area))
+            .ToArray();
+    }
+
+    private bool IsIgnoredArea(PolygonCollider2D area) {
+        if (!string.IsNullOrEmpty(ignoreTag) && area.gameObject.CompareTag(ignoreTag)) {
+            return true;
+        }
+
+        if (excludedAreaNames.Contains(area.name)) {
+            return true;
+        }
+
+        return false;
     }
 
     // Generate map

@@ -18,8 +18,11 @@ public class MapTransition : MonoBehaviour
 	}	
 
 	private void OnTriggerEnter2D(Collider2D collision) {
-		if (collision.gameObject.CompareTag("Player")) {
-			FadeTransition(collision.gameObject);
+		if (collision is not BoxCollider2D) return;
+
+		var playerObject = collision.attachedRigidbody?.gameObject ?? collision.transform.root.gameObject;
+		if (playerObject.CompareTag("Player")) {
+			FadeTransition(playerObject);
 
 			MapController_Manual.Instance?.HighlightArea(mapBoundry.name);
 			MapController_Dynamic.Instance?.UpdateCurrentArea(mapBoundry.name);
@@ -30,8 +33,12 @@ public class MapTransition : MonoBehaviour
 	{
 		var playerMovement = player.GetComponent<PlayerMovement>();
 		var rb = player.GetComponent<Rigidbody2D>();
-		if (rb != null) rb.linearVelocity = Vector2.zero;
-		if (playerMovement != null) playerMovement.enabled = false;
+		if (playerMovement != null) {
+			playerMovement.StopMovement();
+			playerMovement.enabled = false;
+		} else if (rb != null) {
+			rb.linearVelocity = Vector2.zero;
+		}
 
 		await ScreenFader.Instance.FadeOut();
 		confiner.BoundingShape2D = mapBoundry;
