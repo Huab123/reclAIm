@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ArmorSlot : MonoBehaviour
+public class ArmorSlot : Slot
 {
     public ArmorSlotType acceptedType;
 }
