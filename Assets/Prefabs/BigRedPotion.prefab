@@ -32,6 +32,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6834701404633864263, guid: 639bd86c2d9b6399297e66593d61e7b0, type: 3}
+    - target: {fileID: 2471483120945856331, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7829547220833242000, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -113,7 +117,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6189988733337247472, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
