@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private Weapon weapon;
 	[SerializeField] private GameObject menu;
 	public TextMeshProUGUI healthText;
+	public Image healthBarFill;
 
 
 	Vector2 moveDirection;
@@ -81,7 +83,7 @@ public class PlayerMovement : MonoBehaviour
 		}
 	}
 	
-	private void Heal(float amount)
+	public void Heal(float amount)
 	{
 		Debug.Log("player healed: " + amount);
 		PlayerStats.Instance.health += amount;
@@ -92,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
 		UpdateHealthDisplay();
 	}
 
-	private void TakeDamage(float amount)
+	public void TakeDamage(float amount)
 	{
 		Debug.Log("player damaged: " + amount);
 		PlayerStats.Instance.health -= amount;
@@ -102,9 +104,12 @@ public class PlayerMovement : MonoBehaviour
 		}
 		UpdateHealthDisplay();
 	}
-	void UpdateHealthDisplay()
+	public void UpdateHealthDisplay()
 	{
-		healthText.text = "health: " + PlayerStats.Instance.health + "/" + PlayerStats.Instance.maxHealth;
+		healthText.text = "HP: " + PlayerStats.Instance.health + "/" + PlayerStats.Instance.maxHealth;
+		Vector3 scale = healthBarFill.transform.localScale;
+		scale.x = (float)PlayerStats.Instance.health / (float)PlayerStats.Instance.maxHealth;
+		healthBarFill.transform.localScale = scale;
 	}
 
 	void OnTriggerEnter2D(Collider2D other)
