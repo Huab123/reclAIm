@@ -49,7 +49,7 @@ public class Weapon : MonoBehaviour
 		}
 		else
 		{
-			AmmoText.text = "Ammo: " + currentAmmo + "/" + PlayerStats.Instance.MaxAmmo;
+			AmmoText.text = "Ammo: \n" + currentAmmo + "/" + PlayerStats.Instance.MaxAmmo;
 		}
 	}
 

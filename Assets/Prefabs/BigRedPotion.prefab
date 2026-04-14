@@ -9,13 +9,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
+      propertyPath: ID
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: Name
       value: Red Potion
       objectReference: {fileID: 0}
     - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
-      propertyPath: data
-      value: 
-      objectReference: {fileID: 11400000, guid: 34b6a19049db9a64d9c6a197d6a7c0eb, type: 2}
+      propertyPath: description
+      value: Heals 20 HP
+      objectReference: {fileID: 0}
     - target: {fileID: 1331746237368880710, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Name
       value: BigRedPotion
@@ -28,6 +32,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6834701404633864263, guid: 639bd86c2d9b6399297e66593d61e7b0, type: 3}
+    - target: {fileID: 2471483120945856331, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
+      propertyPath: m_SortingLayer
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 7829547220833242000, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -109,7 +117,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6189988733337247472, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351ff823e50196cbc868e20d2854baed, type: 3}

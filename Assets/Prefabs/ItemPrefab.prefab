@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: 4609843996411547316}
   - component: {fileID: -6414518899858080901}
   m_Layer: 5
-  m_Name: BigBluePotion
+  m_Name: ItemPrefab
   m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -118,8 +118,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e03832061c95168ff82ee4cfd43e1ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  ID: 1
-  Name: Blue Potion
+  ID: -1
+  Name: Item Prefab
+  description: 
   quantity: 1
 --- !u!212 &2471483120945856331
 SpriteRenderer:
