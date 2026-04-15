@@ -29,8 +29,11 @@ public class enemyController : MonoBehaviour
     {
         if (player == null) return;
 
-        // Only chase the player when not being knocked back
-        if (knockbackTimer <= 0)
+        // Check if enemy and player are in the same map area
+        string enemyArea  = MapController_Dynamic.Instance.GetAreaForWorldPosition(rb.position);
+        string playerArea = MapController_Dynamic.Instance.GetAreaForWorldPosition(player.position);
+
+        if (knockbackTimer <= 0 && enemyArea != null && enemyArea == playerArea)
         {
             Vector2 direction = ((Vector2)player.position - rb.position).normalized;
             rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);

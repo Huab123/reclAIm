@@ -26,10 +26,6 @@ public class GraphicsSettingsController : MonoBehaviour
         SetupResolutionDropdown();
     }
  
-    // -------------------------
-    //          FPS
-    // -------------------------
- 
     private void SetupFPSDropdown()
     {
         int savedFPS = PlayerPrefs.GetInt("TargetFPS", 60);
@@ -62,10 +58,6 @@ public class GraphicsSettingsController : MonoBehaviour
  
         Debug.Log("Target FPS set to: " + fps);
     }
- 
-    // -------------------------
-    //       RESOLUTION
-    // -------------------------
  
     private void SetupResolutionDropdown()
     {
