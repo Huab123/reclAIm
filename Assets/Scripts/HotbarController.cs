@@ -34,7 +34,7 @@ public class HotbarController : MonoBehaviour {
         Slot slot = hotbarPanel.transform.GetChild(index).GetComponent<Slot>();
         if (slot.currentItem != null) {
             Item item = slot.currentItem.GetComponent<Item>();
-            item.UseItem(player);
+            item.UseItem();
         }
     }
 
