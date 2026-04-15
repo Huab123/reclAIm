@@ -22,7 +22,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: description
-      value: + 50 Max HP
+      value: '+ 50 Max HP
+
+        + 50 Max HP
+
+        + 50 Max HP
+
+        + 50
+        Max HP'
       objectReference: {fileID: 0}
     - target: {fileID: 1331746237368880710, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Name

@@ -9,16 +9,23 @@ public class MenuController : MonoBehaviour
 		SetMenuActive(false);
     }
 
-    void Update() {
-      if (Keyboard.current.escapeKey.wasPressedThisFrame) {
-		ToggleMenu();
-	}
-
-		// If the menu is closed by another UI path, restore normal time scale.
-		if (!menuCanvas.activeSelf && Time.timeScale == 0f) {
-			Time.timeScale = 1f;
-		}
+	void Update() {
+    if (Keyboard.current.escapeKey.wasPressedThisFrame) {
+        if (!IsAnyShopOpen())
+            ToggleMenu();
     }
+
+    if (!menuCanvas.activeSelf && Time.timeScale == 0f) {
+        Time.timeScale = 1f;
+    }
+}
+
+private bool IsAnyShopOpen() {
+    foreach (Shop shop in FindObjectsByType<Shop>(FindObjectsSortMode.None)) {
+        if (shop.IsOpen) return true;
+    }
+    return false;
+}
 
 	public void ToggleMenu() {
 		SetMenuActive(!menuCanvas.activeSelf);

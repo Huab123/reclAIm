@@ -106,4 +106,14 @@ public class MapController_Dynamic : MonoBehaviour {
         }
     }
 
+    // Returns the name of the map area that contains the given world position
+    public string GetAreaForWorldPosition(Vector2 worldPos)
+    {
+        foreach (PolygonCollider2D area in mapAreas)
+        {
+            if (area.OverlapPoint(worldPos))
+                return area.name;
+        }
+        return null;
+    }
 }
