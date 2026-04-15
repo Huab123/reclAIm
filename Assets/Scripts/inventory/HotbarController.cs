@@ -10,9 +10,11 @@ public class HotbarController : MonoBehaviour {
     private ItemDictionary itemDictionary;
 
     private Key[] hotbarKeys;
+	private GameObject player;
 
     private void Awake() {
         itemDictionary = FindFirstObjectByType<ItemDictionary>();
+		player = PlayerStats.Instance.gameObject;
         
         hotbarKeys = new Key[slotCount];
         for (int i = 0; i < slotCount; i++) {

@@ -13,6 +13,7 @@ public class Item : MonoBehaviour {
     public bool IsPickedUp => pickedUp;
     public int quantity = 1;
     private TMP_Text quantityText;
+    public ItemData data;
 
     private void Awake() {
         quantityText = transform.Find("Qty Text")?.GetComponent<TMP_Text>();
