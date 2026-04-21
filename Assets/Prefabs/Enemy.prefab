@@ -183,3 +183,4 @@ MonoBehaviour:
   moveSpeed: 3
   knockbackForce: 5
   knockbackDuration: 0.2
+  goldCoinPrefab: {fileID: 5888267235530974277, guid: 74207b2cf589fb40c942ec29389ce5ef, type: 3}

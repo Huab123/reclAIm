@@ -30,24 +30,27 @@ public class FollowerAndSpawner : MonoBehaviour
     }
     public void SpawnAroundPlayer()
     {
-        if (spawnPrefab == null || player == null)
+        if (combatSwitcher.CombatActive)
         {
-            Debug.LogWarning("FollowerAndSpawner: spawnPrefab or player is not assigned.");
-            return;
+            if (spawnPrefab == null || player == null)
+            {
+                Debug.LogWarning("FollowerAndSpawner: spawnPrefab or player is not assigned.");
+                return;
+            }
+
+            float angle = Random.Range(0f, Mathf.PI * 2f);
+
+            Vector2 offset = new Vector2(
+                Mathf.Cos(angle) * spawnRadius,
+                Mathf.Sin(angle) * spawnRadius
+            );
+
+            Vector3 spawnPosition = (Vector2)player.position + offset;
+            // Preserve the prefab's original Z so sorting layers work correctly
+            spawnPosition.z = spawnPrefab.transform.position.z;
+
+            Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
         }
-
-        float angle = Random.Range(0f, Mathf.PI * 2f);
-
-        Vector2 offset = new Vector2(
-            Mathf.Cos(angle) * spawnRadius,
-            Mathf.Sin(angle) * spawnRadius
-        );
-
-        Vector3 spawnPosition = (Vector2)player.position + offset;
-        // Preserve the prefab's original Z so sorting layers work correctly
-        spawnPosition.z = spawnPrefab.transform.position.z;
-
-        Instantiate(spawnPrefab, spawnPosition, Quaternion.identity);
     }
 
     void LateUpdate()

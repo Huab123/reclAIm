@@ -3,9 +3,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour
 {
     public static PlayerStats Instance { get; private set; }
-    
 
-    
     public float maxHealth = 100f;
     public float health;
     public float damageMult = 1f;

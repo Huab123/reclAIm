@@ -1915,6 +1915,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268886574}
   m_CullTransparentMesh: 1
+--- !u!1 &281114873
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 281114875}
+  - component: {fileID: 281114874}
+  m_Layer: 0
+  m_Name: enemy spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &281114874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281114873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4875578791bed372497ad1e8a7ad012a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FollowerAndSpawner
+  targetToFollow: {fileID: 0}
+  followOffset: {x: 0, y: 0}
+  spawnPrefab: {fileID: 3026185883511895697, guid: 8d2dd825a37f857ed95a1626e8afba86, type: 3}
+  player: {fileID: 225009447}
+  spawnRadius: 20
+  spawnInterval: 2
+--- !u!4 &281114875
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281114873}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.86189, y: -8.97294, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &320647107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2975,7 +3025,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0705705, y: -8.89726, z: -10}
+  m_LocalPosition: {x: -5.025682, y: -8.89726, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -51624,6 +51674,7 @@ GameObject:
   - component: {fileID: 1821744332}
   - component: {fileID: 1821744334}
   - component: {fileID: 1821744333}
+  - component: {fileID: 1821744335}
   m_Layer: 0
   m_Name: TownWaypoint
   m_TagString: Untagged
@@ -51708,6 +51759,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 2.9559479, y: 0.3617649}
   m_EdgeRadius: 0
+--- !u!114 &1821744335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821744331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773959a90977ab034a5a0aa54d68022f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::combatSwitcher
+  Trigger: {fileID: 1456019237}
 --- !u!1001 &1823167271
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53779,6 +53843,7 @@ GameObject:
   - component: {fileID: 2096574814}
   - component: {fileID: 2096574816}
   - component: {fileID: 2096574815}
+  - component: {fileID: 2096574817}
   m_Layer: 0
   m_Name: FightWaypoint
   m_TagString: Untagged
@@ -53863,6 +53928,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 3.0177727, y: 0.49048805}
   m_EdgeRadius: 0
+--- !u!114 &2096574817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2096574813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 773959a90977ab034a5a0aa54d68022f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::combatSwitcher
+  Trigger: {fileID: 949489674}
 --- !u!1 &2126332267
 GameObject:
   m_ObjectHideFlags: 0
@@ -54347,3 +54425,4 @@ SceneRoots:
   - {fileID: 1652842859}
   - {fileID: 976580206}
   - {fileID: 320647107}
+  - {fileID: 281114875}
