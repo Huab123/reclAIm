@@ -6,6 +6,7 @@ public class enemyController : MonoBehaviour
     public float moveSpeed = 3f;
     public float knockbackForce = 5f;
     public float knockbackDuration = 0.2f;
+    [SerializeField] private GameObject goldCoinPrefab;
 
     private Rigidbody2D rb;
     private Transform player;
@@ -44,7 +45,13 @@ public class enemyController : MonoBehaviour
     {
         health -= damage;
         if (health <= 0)
+        {
+            if (goldCoinPrefab != null)
+            {
+                Instantiate(goldCoinPrefab, transform.position, Quaternion.identity);
+            }
             Destroy(gameObject);
+        }
     }
 
     void ApplyKnockback(Vector2 sourcePosition)
