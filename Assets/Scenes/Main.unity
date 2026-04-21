@@ -1650,6 +1650,7 @@ MonoBehaviour:
   menu: {fileID: 162358833}
   healthText: {fileID: 362866224}
   healthBarFill: {fileID: 1932928187}
+  coinsText: {fileID: 0}
 --- !u!95 &225009449
 Animator:
   serializedVersion: 7
@@ -1751,6 +1752,8 @@ MonoBehaviour:
   reloadTime: 1
   MaxAmmo: 7
   moveSpeed: 5
+  coins: 100
+  mana: 0
 --- !u!1 &268464424 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 826323420910401008, guid: 79addf6f78a81b35880dde66755aa9cb, type: 3}
@@ -2918,7 +2921,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.0705705, y: -8.89726, z: -10}
+  m_LocalPosition: {x: -5.025682, y: -8.89726, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3975,6 +3978,56 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 686946312}
   m_CullTransparentMesh: 1
+--- !u!1 &688365067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 688365069}
+  - component: {fileID: 688365068}
+  m_Layer: 0
+  m_Name: enemy spawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &688365068
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688365067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4875578791bed372497ad1e8a7ad012a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  targetToFollow: {fileID: 225009447}
+  followOffset: {x: 0, y: 0}
+  spawnPrefab: {fileID: 3026185883511895697, guid: 8d2dd825a37f857ed95a1626e8afba86, type: 3}
+  player: {fileID: 225009447}
+  spawnRadius: 5
+  spawnInterval: 3
+--- !u!4 &688365069
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 688365067}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.88048, y: -8.66265, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &697294480
 GameObject:
   m_ObjectHideFlags: 0
@@ -40954,6 +41007,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shop
   shopUI: {fileID: 88947377}
+  shopInventory: {fileID: 0}
 --- !u!61 &2047748548
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -41905,3 +41959,4 @@ SceneRoots:
   - {fileID: 1652842859}
   - {fileID: 976580206}
   - {fileID: 320647107}
+  - {fileID: 688365069}
