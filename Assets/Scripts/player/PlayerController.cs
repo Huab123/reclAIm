@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private GameObject menu;
 	public TextMeshProUGUI healthText;
 	public Image healthBarFill;
+	public TextMeshProUGUI coinsText;
 
 
 	Vector2 moveDirection;
@@ -27,6 +28,15 @@ public class PlayerMovement : MonoBehaviour
 		animator = GetComponent<Animator>();
 		PlayerStats.Instance.health = PlayerStats.Instance.maxHealth;
 		UpdateHealthDisplay();
+		UpdateCurrencyDisplay();
+    }
+
+    private bool IsAnyShopOpen() {
+        Shop[] shops = FindObjectsByType<Shop>(FindObjectsSortMode.None);
+        foreach (Shop s in shops) {
+            if (s.IsOpen) return true;
+        }
+        return false;
     }
 
     // Update is called once per frame
@@ -46,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
        	rb.linearVelocity = moveInput * PlayerStats.Instance.moveSpeed;
 
 		// Shoot bullet if leftMouse pressed
-		if(Mouse.current.leftButton.wasPressedThisFrame) {
+		if(Mouse.current.leftButton.wasPressedThisFrame && !IsAnyShopOpen()) {
 			weapon.Fire();
 		}
 		
@@ -110,6 +120,14 @@ public class PlayerMovement : MonoBehaviour
 		Vector3 scale = healthBarFill.transform.localScale;
 		scale.x = (float)PlayerStats.Instance.health / (float)PlayerStats.Instance.maxHealth;
 		healthBarFill.transform.localScale = scale;
+	}
+
+	public void UpdateCurrencyDisplay()
+	{
+		if (coinsText != null)
+		{
+			coinsText.text = "$ " + PlayerStats.Instance.coins;
+		}
 	}
 
 	void OnTriggerEnter2D(Collider2D other)

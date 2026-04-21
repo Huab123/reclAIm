@@ -77,7 +77,11 @@ public class Item : MonoBehaviour {
         GameObject player = GameObject.FindWithTag("Player");
         if (player != null) {
             PlayerMovement playerController = player.GetComponent<PlayerMovement>();
-            if (playerController != null) {
+            if (PlayerStats.Instance.health >= PlayerStats.Instance.maxHealth) {
+                Debug.Log("Health is already full. Cannot use potion.");
+                return false;
+            }
+            else if (playerController != null) {
                 playerController.Heal(20);
                 return true;
             }

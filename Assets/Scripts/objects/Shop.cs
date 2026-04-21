@@ -1,8 +1,23 @@
-
 using UnityEngine;
+using UnityEngine.InputSystem;
  
 public class Shop : MonoBehaviour, IInteractable {
     public GameObject shopUI;
+    public ShopInventory shopInventory;
+ 
+    void Start() {
+        SetShopActive(false);
+    }
+ 
+    void Update() {
+        if (shopUI.activeSelf && Keyboard.current.escapeKey.wasPressedThisFrame) {
+            CloseShop();
+        }
+ 
+        if (!shopUI.activeSelf && Time.timeScale == 0f) {
+            Time.timeScale = 1f;
+        }
+    }
  
     public bool IsOpen => shopUI != null && shopUI.activeSelf;
  
@@ -19,13 +34,18 @@ public class Shop : MonoBehaviour, IInteractable {
     }
  
     public void OpenShop() {
-        if (shopUI != null)
-            shopUI.SetActive(true);
+        SetShopActive(true);
+        if (shopInventory != null) {
+            shopInventory.PopulateShop();
+        }
     }
  
     public void CloseShop() {
-        if (shopUI != null)
-            shopUI.SetActive(false);
+        SetShopActive(false);
+    }
+ 
+    private void SetShopActive(bool active) {
+        shopUI.SetActive(active);
+        Time.timeScale = active ? 0f : 1f;
     }
 }
- 

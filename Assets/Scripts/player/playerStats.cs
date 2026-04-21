@@ -15,6 +15,12 @@ public class PlayerStats : MonoBehaviour
     public float reloadTime = 1f; // this is the time it takes
 	public int MaxAmmo = 7; // how many shots you have before needing to reload
     public float moveSpeed = 5f;
+
+
+    // Utility
+    public int coins = 100;
+    public int mana = 0;
+
     // if you are to add more stats, MAKE SURE IT IS public, else nothing will be able to use the stat
     void Awake()
     {

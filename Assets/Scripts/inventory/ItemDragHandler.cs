@@ -18,11 +18,18 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
 
     public void OnBeginDrag(PointerEventData eventData) {
         if (eventData.button != PointerEventData.InputButton.Left) return;
+
+        // Prevent dragging if item is in a shop slot
+        if (transform.parent.GetComponent<ShopSlot>() != null) return;
+
         dragStartPosition = eventData.position;
     }
 
     public void OnDrag(PointerEventData eventData) {
         if (eventData.button != PointerEventData.InputButton.Left) return;
+
+        // Prevent dragging if item is in a shop slot
+        if (transform.parent.GetComponent<ShopSlot>() != null) return;
 
         if (!isDragging) {
             if (Vector2.Distance(eventData.position, dragStartPosition) < DRAG_THRESHOLD) return;
