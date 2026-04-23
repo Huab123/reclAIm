@@ -10,11 +10,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: ID
-      value: 2
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: Name
-      value: Bronze Helmet
+      value: Steel Helmet
       objectReference: {fileID: 0}
     - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: quantity
@@ -22,16 +22,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -3330400591242279866, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: description
-      value: + 50 Max HP
+      value: + 75 Max HP
       objectReference: {fileID: 0}
     - target: {fileID: 1331746237368880710, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Name
-      value: Bronze Helmet
+      value: Steel Helmet
       objectReference: {fileID: 0}
     - target: {fileID: 1975929634648446078, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2020249159, guid: 51c10db037b02aa149f18414b2ce9742, type: 3}
+      objectReference: {fileID: -625914498, guid: 51c10db037b02aa149f18414b2ce9742, type: 3}
     - target: {fileID: 2471483120945856331, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Size.x
       value: 1
@@ -43,7 +43,7 @@ PrefabInstance:
     - target: {fileID: 2471483120945856331, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 2020249159, guid: 51c10db037b02aa149f18414b2ce9742, type: 3}
+      objectReference: {fileID: -625914498, guid: 51c10db037b02aa149f18414b2ce9742, type: 3}
     - target: {fileID: 2471483120945856331, guid: 351ff823e50196cbc868e20d2854baed, type: 3}
       propertyPath: m_SortingLayer
       value: 4
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ArmorItem
   armorType: 0
-  bonusMaxHealth: 50
+  bonusMaxHealth: 75
   bonusMoveSpeed: 0
   bonusDamageMult: 0
   bonusAttackSpeedMult: 0

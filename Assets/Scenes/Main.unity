@@ -1669,6 +1669,9 @@ MonoBehaviour:
   weapon: {fileID: 638679866}
   menu: {fileID: 162358833}
   healthText: {fileID: 362866224}
+  footstepSource: {fileID: 0}
+  footstepClip: {fileID: 0}
+  footstepVolume: 0.6
   healthBarFill: {fileID: 1932928187}
   coinsText: {fileID: 976737708}
 --- !u!95 &225009449
@@ -3123,7 +3126,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.035574, y: -8.89726, z: -10}
+  m_LocalPosition: {x: -0.09315491, y: -0.43910027, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4230,6 +4233,18 @@ MonoBehaviour:
   - {fileID: 1295157575913551301, guid: 6d1cc1e4668ca514c94ed3b34fd68cfc, type: 3}
   - {fileID: 263047462927698352, guid: fb1ccf51275799143a5ca403343c2183, type: 3}
   - {fileID: 3290244120424537027, guid: 72bf9e9d95a0bb3419923c7e5a28d42d, type: 3}
+  - {fileID: 2392646689844646387, guid: e25baf8c00326e9499a3f69db2d18841, type: 3}
+  - {fileID: 1295157575913551301, guid: 34d2ff0ac554c6547b67f7d76cf80890, type: 3}
+  - {fileID: 263047462927698352, guid: 9a7325b6f991ede43a10ec85427970d7, type: 3}
+  - {fileID: 3290244120424537027, guid: 1e993d9b41525534badcd40947fb1114, type: 3}
+  - {fileID: 2392646689844646387, guid: c5f08bc909e94d64d998e9a040c7079f, type: 3}
+  - {fileID: 1295157575913551301, guid: c081715788d686643b8ccb96c4313f66, type: 3}
+  - {fileID: 263047462927698352, guid: bfeeab851a2b482409787477745911cb, type: 3}
+  - {fileID: 3290244120424537027, guid: 56f60d1c1d5cc72458c5992767f86b23, type: 3}
+  - {fileID: 2392646689844646387, guid: 67891f0ff4622f14f83927aa81671229, type: 3}
+  - {fileID: 1295157575913551301, guid: 9e6c6f5b688a3eb4f9cc59ddba68aeb0, type: 3}
+  - {fileID: 263047462927698352, guid: bb7dfdbfeafabe24999fb705413d9749, type: 3}
+  - {fileID: 3290244120424537027, guid: 01515825533ca9d469837b07ec21adca, type: 3}
 --- !u!1 &704360510
 GameObject:
   m_ObjectHideFlags: 0
