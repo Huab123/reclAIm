@@ -1669,8 +1669,8 @@ MonoBehaviour:
   weapon: {fileID: 638679866}
   menu: {fileID: 162358833}
   healthText: {fileID: 362866224}
-  footstepSource: {fileID: 0}
-  footstepClip: {fileID: 0}
+  footstepSource: {fileID: 225009453}
+  footstepClip: {fileID: 8300000, guid: 24303cf485ecce64b9fff7d78ad4b784, type: 3}
   footstepVolume: 0.6
   healthBarFill: {fileID: 1932928187}
   coinsText: {fileID: 976737708}
@@ -1790,9 +1790,9 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.333
-  m_Pitch: 1
-  Loop: 0
+  m_Volume: 0.176
+  m_Pitch: 0.9
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -3126,7 +3126,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09315491, y: -0.43910027, z: -10}
+  m_LocalPosition: {x: -3.2684073, y: -8.89726, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
