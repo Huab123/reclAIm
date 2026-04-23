@@ -12,6 +12,10 @@ public class PlayerMovement : MonoBehaviour
 	[SerializeField] private Weapon weapon;
 	[SerializeField] private GameObject menu;
 	public TextMeshProUGUI healthText;
+	[Header("Footstep Audio")]
+	[SerializeField] private AudioSource footstepSource;
+	[SerializeField] private AudioClip footstepClip;
+	[SerializeField] private float footstepVolume = 0.6f;
 	public Image healthBarFill;
 	public TextMeshProUGUI coinsText;
 
@@ -29,7 +33,21 @@ public class PlayerMovement : MonoBehaviour
 		PlayerStats.Instance.health = PlayerStats.Instance.maxHealth;
 		UpdateHealthDisplay();
 		UpdateCurrencyDisplay();
+	    
+		if (footstepSource == null)
+        {
+            footstepSource = GetComponent<AudioSource>();
+        }
+
+        if (footstepSource != null)
+        {
+            footstepSource.clip = footstepClip;
+            footstepSource.loop = true;
+            footstepSource.playOnAwake = false;
+            footstepSource.volume = footstepVolume;
+        }	
     }
+	
 
     private bool IsAnyShopOpen() {
         Shop[] shops = FindObjectsByType<Shop>(FindObjectsSortMode.None);
@@ -48,7 +66,8 @@ public class PlayerMovement : MonoBehaviour
         	if (opening) {
         		moveInput = Vector2.zero;
         		rb.linearVelocity = Vector2.zero;
-        	}
+				StopFootsteps();
+			}
     	}
 		else if (menu.activeSelf == true) return;
 
@@ -62,7 +81,8 @@ public class PlayerMovement : MonoBehaviour
 		
 		// Set up gun rotation based on mouse position
 		mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-    }
+		HandleFootsteps();
+	}
 
 	private void FixedUpdate() {
 		Vector2 aimDirection = mousePosition - rb.position;
@@ -71,12 +91,14 @@ public class PlayerMovement : MonoBehaviour
 
 	public void Move(InputAction.CallbackContext context) {
 		if (menu.activeSelf == true) return;
-		animator.SetBool("isWalking", true);
+		moveInput = context.ReadValue<Vector2>();
+    	bool isMoving = moveInput != Vector2.zero;
+		animator.SetBool("isWalking", isMoving);
 		
 		if(context.canceled) {
-			animator.SetBool("isWalking", false);
 			animator.SetFloat("LastInputX", moveInput.x);
 			animator.SetFloat("LastInputY", moveInput.y);
+			StopFootsteps();
 		}
 		moveInput = context.ReadValue<Vector2>();
 		animator.SetFloat("InputX", moveInput.x);
@@ -92,6 +114,34 @@ public class PlayerMovement : MonoBehaviour
 			rb.linearVelocity = Vector2.zero;
 		}
 	}
+	private void HandleFootsteps()
+    {
+        if (footstepSource == null || footstepClip == null) return;
+
+        bool isMoving = moveInput != Vector2.zero && rb.linearVelocity.sqrMagnitude > 0.01f;
+
+        if (isMoving)
+        {
+            if (!footstepSource.isPlaying)
+            {
+                footstepSource.Play();
+            }
+        }
+        else
+        {
+            StopFootsteps();
+        }
+    }
+
+    private void StopFootsteps()
+    {
+        if (footstepSource != null && footstepSource.isPlaying)
+        {
+            footstepSource.Stop();
+        }
+    }
+
+
 	
 	public void Heal(float amount)
 	{
