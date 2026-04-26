@@ -9,6 +9,7 @@ TagManager:
   - Item
   - bullet
   - MapIgnore
+  - ItemNotification
   layers:
   - Default
   - TransparentFX

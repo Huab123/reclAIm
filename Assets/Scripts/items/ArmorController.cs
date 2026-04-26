@@ -130,30 +130,62 @@ public class ArmorController : MonoBehaviour
     }
 
     public void EquipArmorDirectly(ArmorSlotType type, GameObject worldItemGO)
+{
+    if (!_armorSlots.TryGetValue(type, out Slot slot)) return;
+
+    Item worldItem = worldItemGO.GetComponent<Item>();
+    ArmorItem worldArmorItem = worldItemGO.GetComponent<ArmorItem>();
+    if (worldItem == null || worldArmorItem == null) return;
+
+    ItemDictionary dict = FindFirstObjectByType<ItemDictionary>();
+    if (dict == null) return;
+
+    GameObject prefab = dict.GetItemPrefab(worldItem.ID);
+    if (prefab == null) return;
+
+    // ── Slot occupied → unequip and drop the old armor into the world ──
+    if (slot.currentItem != null)
     {
-        if (!_armorSlots.TryGetValue(type, out Slot slot)) return;
+        Item oldItem = slot.currentItem.GetComponent<Item>();
+        ArmorItem oldArmor = slot.currentItem.GetComponent<ArmorItem>();
 
-        Item worldItem = worldItemGO.GetComponent<Item>();
-        ArmorItem worldArmorItem = worldItemGO.GetComponent<ArmorItem>();
-        if (worldItem == null || worldArmorItem == null) return;
+        if (oldArmor != null) RemoveArmorStats(oldArmor);
 
-        ItemDictionary dict = FindFirstObjectByType<ItemDictionary>();
-        if (dict == null) return;
+        if (oldItem != null)
+        {
+            GameObject dropped = dict.GetItemPrefab(oldItem.ID);
+            if (dropped != null)
+            {
+                GameObject droppedGO = Instantiate(dropped,
+                    GameObject.FindWithTag("Player").transform.position,
+                    Quaternion.identity);
 
-        GameObject prefab = dict.GetItemPrefab(worldItem.ID);
-        if (prefab == null) return;
+                Item droppedItem = droppedGO.GetComponent<Item>();
+                if (droppedItem != null)
+                {
+                    droppedItem.quantity = oldItem.quantity;
+                    droppedItem.UpdateQuantityDisplay();
+                }
+            }
+        }
 
-        GameObject uiItem = Instantiate(prefab, slot.transform);
-        uiItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-
-        Item uiItemComp = uiItem.GetComponent<Item>();
-        if (uiItemComp != null) { uiItemComp.quantity = worldItem.quantity; uiItemComp.UpdateQuantityDisplay(); }
-
-        slot.currentItem = uiItem;
-
-        ArmorItem uiArmorComp = uiItem.GetComponent<ArmorItem>();
-        if (uiArmorComp != null) OnArmorEquipped(uiArmorComp, type);
+        Destroy(slot.currentItem);
+        slot.currentItem = null;
+        _equipped[type] = null;
     }
+    // ───────────────────────────────────────────────────────────────────
+
+    GameObject uiItem = Instantiate(prefab, slot.transform);
+    uiItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+
+    Item uiItemComp = uiItem.GetComponent<Item>();
+    if (uiItemComp != null) { uiItemComp.quantity = worldItem.quantity; uiItemComp.UpdateQuantityDisplay(); }
+
+    slot.currentItem = uiItem;
+
+    ArmorItem uiArmorComp = uiItem.GetComponent<ArmorItem>();
+    if (uiArmorComp != null) OnArmorEquipped(uiArmorComp, type);
+}
 
 
     public List<InventorySaveData> GetArmorSaveData()

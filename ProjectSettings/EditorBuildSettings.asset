@@ -8,6 +8,12 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/AStar/Example 2/Scene/Click to Pathfind.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 57cb4dc558dac2eef8d575cb6bd05dac
+  - enabled: 1
+    path: Assets/Scenes/Main.unity
+    guid: 99949fbc907086e0e8b9e3fd76d70d07
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: e2f077a379ed0e7c38862b28591bf8e6, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
